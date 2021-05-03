@@ -51,7 +51,13 @@ form.addEventListener("submit", (evt) => {
     li.style.color = color.value;
 
     //// Insérer les champs pseudo, message et button suppression
-    li.innerHTML = "Votre pseudo: " + pseudo.value + "<br>" + "Votre message: "  + message.value + "<br>" + "Posté le: " + dateLocale;
+    li.innerHTML = "Votre pseudo: " 
+                    + pseudo.value 
+                    + "<br>" 
+                    + "Votre message: "  
+                    + message.value 
+                    + "<br>" 
+                    + "Posté le: " + dateLocale;
     ul.append(li); 
     let linebreak = document.createElement("br"); // Retour à ligne
     li.appendChild(linebreak); // Application du retour à la ligne
@@ -68,13 +74,13 @@ form.addEventListener("submit", (evt) => {
     evt.preventDefault();
 });
 
-// Disable right-click
+// Désactiver le clic droit
 window.addEventListener('contextmenu', function (e) {
     alert('Le clic droit est désactivé');
     e.preventDefault();
   }, false);
 
-// Taper entrée pour stockage
+// Taper entrée pour envoyer le message
 submit.addEventListener("keyup", e =>{
     if (e.key === "Enter"){
         form.submit();
