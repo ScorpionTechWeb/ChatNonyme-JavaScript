@@ -22,6 +22,7 @@ frm.addEventListener("submit", (evt) => {
     } else {
         pseudo.value = pseudo.value;
     }
+
     //// Créer un button delete
     let del = document.createElement("button");
     del.innerHTML = "X";
@@ -29,21 +30,28 @@ frm.addEventListener("submit", (evt) => {
         let element = del.parentNode.parentNode.removeChild(del.parentNode);
         element.remove();
     });
+    
     //// Récupérer champ "ul" et on crée un champ "li"
     let ul = document.querySelector("ul");
     let li = document.createElement("li");
+
     //// Fixer la couleur choisi par l'internaute 
     li.style.color = color.value;
+
     //// Insérer les champs pseudo, message et button suppression
     li.innerHTML = "Votre pseudo: " + pseudo.value + "<br>" + "Votre message: "  + message.value;
-    ul.append(li);
-    li.appendChild(del);
+    ul.append(li); 
+    let linebreak = document.createElement("br"); // Retour à ligne
+    li.appendChild(linebreak); // Application du retour à la ligne
+    li.appendChild(del); 
+
     //// Réinisialiser les champs et focus
     pseudo.value = ""; // vider le "pseudo"
     message.value = ""; // vider le "message"
     submit.disabled = true; // activer disabled dans le button "submit"
     color.value = "#000000"; // Réinisialiser le champ "color", par defaut black
     message.focus(); // focus sur le champ message, car pseudo est falcutatif
+    
     //// stop submit en cas d'erreur
     evt.preventDefault();
 });
