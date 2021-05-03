@@ -1,6 +1,6 @@
 /// Récupération générale
-const frm = document.querySelector("form");
-const submit = frm.lastElementChild;
+const form = document.querySelector("form");
+const submit = form.lastElementChild;
 
 /// Inputs
 const pseudo = document.getElementById("pseudo");
@@ -15,7 +15,7 @@ message.addEventListener("keyup", () =>{
 });
 
 // addEventListener sur le submit
-frm.addEventListener("submit", (evt) => {
+form.addEventListener("submit", (evt) => {
     //// On test le champ pseudo, par defaut Chat-Nonyme
     if (pseudo.value === ""){
         pseudo.value = "Chat-Nonyme";
@@ -77,6 +77,6 @@ window.addEventListener('contextmenu', function (e) {
 // Taper entrée pour stockage
 submit.addEventListener("keyup", e =>{
     if (e.key === "Enter"){
-        frm.submit();
+        form.submit();
     }
 });
