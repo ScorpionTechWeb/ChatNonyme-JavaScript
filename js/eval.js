@@ -1,6 +1,9 @@
 /// Récupération générale
 const form = document.querySelector("form");
 const submit = form.lastElementChild;
+const h1 = document.querySelector("h1");
+let count1 = 0;
+let countdiv = document.createElement("div");
 
 /// Inputs
 const pseudo = document.getElementById("pseudo");
@@ -16,6 +19,16 @@ message.addEventListener("keyup", () =>{
 
 // addEventListener sur le submit
 form.addEventListener("submit", (evt) => {
+    let linebreak = document.createElement("br"); // Retour à ligne
+    count1++;
+    if (count1 === 0){
+        countdiv.remove();
+    } else {
+        countdiv.textContent = count1 + " messages";
+        h1.appendChild(linebreak);
+        h1.appendChild(countdiv);
+    }
+
     //// On test le champ pseudo, par defaut Chat-Nonyme
     if (pseudo.value === ""){
         pseudo.value = "Chat-Nonyme";
@@ -41,6 +54,14 @@ form.addEventListener("submit", (evt) => {
     del.addEventListener ("click", function() {
         let element = del.parentNode.parentNode.removeChild(del.parentNode);
         element.remove();
+        count1--;
+        if (count1 === 0){
+            countdiv.remove();
+        } else {
+            countdiv.textContent = count1 + " messages";
+            h1.appendChild(linebreak);
+            h1.appendChild(countdiv);
+        }
     });
     
     //// Récupérer champ "ul" et on crée un champ "li"
@@ -59,10 +80,8 @@ form.addEventListener("submit", (evt) => {
                     + "<br>" 
                     + "Posté le: " + dateLocale;
     ul.append(li); 
-    let linebreak = document.createElement("br"); // Retour à ligne
     li.appendChild(linebreak); // Application du retour à la ligne
     li.appendChild(del); 
-
     //// Réinisialiser les champs et focus
     pseudo.value = ""; // vider le "pseudo"
     message.value = ""; // vider le "message"
