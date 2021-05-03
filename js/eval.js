@@ -14,8 +14,6 @@ message.addEventListener("keyup", () =>{
 	}
 });
 
-
-
 // addEventListener sur le submit
 frm.addEventListener("submit", (evt) => {
     //// On test le champ pseudo, par defaut Chat-Nonyme
