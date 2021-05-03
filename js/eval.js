@@ -11,17 +11,17 @@ const message = document.getElementById("message");
 const color = document.getElementById("color");
 
 /// On test si l'utilisateur reseigne un message afin d'enlever le disabled
-message.addEventListener("keyup", () =>{
-	if (message.value !== "") {
-		submit.disabled = false;
-	}
+message.addEventListener("keyup", () => {
+    if (message.value !== "") {
+        submit.disabled = false;
+    }
 });
 
 // addEventListener sur le submit
 form.addEventListener("submit", (evt) => {
     let linebreak = document.createElement("br"); // Retour à ligne
     count1++;
-    if (count1 === 0){
+    if (count1 === 0) {
         countdiv.remove();
     } else {
         countdiv.textContent = count1 + " messages";
@@ -30,7 +30,7 @@ form.addEventListener("submit", (evt) => {
     }
 
     //// On test le champ pseudo, par defaut Chat-Nonyme
-    if (pseudo.value === ""){
+    if (pseudo.value === "") {
         pseudo.value = "Chat-Nonyme";
     } else {
         pseudo.value = pseudo.value;
@@ -38,24 +38,25 @@ form.addEventListener("submit", (evt) => {
 
     //// Heure et date
     let date1 = new Date();
-    let dateLocale  = date1.toLocaleString('fr-FR',{
+    let dateLocale = date1.toLocaleString('fr-FR', {
         weekday: 'long',
         year: 'numeric',
         month: 'long',
         day: 'numeric',
         hour: 'numeric',
         minute: 'numeric',
-        second: 'numeric'});
-    
+        second: 'numeric'
+    });
+
 
     //// Créer un button delete
     let del = document.createElement("button");
     del.innerHTML = "X";
-    del.addEventListener ("click", function() {
+    del.addEventListener("click", function() {
         let element = del.parentNode.parentNode.removeChild(del.parentNode);
         element.remove();
         count1--;
-        if (count1 === 0){
+        if (count1 === 0) {
             countdiv.remove();
         } else {
             countdiv.textContent = count1 + " messages";
@@ -63,7 +64,7 @@ form.addEventListener("submit", (evt) => {
             h1.appendChild(countdiv);
         }
     });
-    
+
     //// Récupérer champ "ul" et on crée un champ "li"
     let ul = document.querySelector("ul");
     let li = document.createElement("li");
@@ -72,16 +73,16 @@ form.addEventListener("submit", (evt) => {
     li.style.color = color.value;
 
     //// Insérer les champs pseudo, message et button suppression
-    li.innerHTML = "Votre pseudo: " 
-                    + pseudo.value 
-                    + "<br>" 
-                    + "Votre message: "  
-                    + message.value 
-                    + "<br>" 
-                    + "Posté le: " + dateLocale;
-    ul.append(li); 
+    li.innerHTML = "Votre pseudo: " +
+        pseudo.value +
+        "<br>" +
+        "Votre message: " +
+        message.value +
+        "<br>" +
+        "Posté le: " + dateLocale;
+    ul.append(li);
     li.appendChild(linebreak); // Application du retour à la ligne
-    li.appendChild(del); 
+    li.appendChild(del);
     //// Réinisialiser les champs et focus
     pseudo.value = ""; // vider le "pseudo"
     message.value = ""; // vider le "message"
@@ -94,14 +95,14 @@ form.addEventListener("submit", (evt) => {
 });
 
 // Désactiver le clic droit
-window.addEventListener('contextmenu', function (e) {
+window.addEventListener('contextmenu', function(e) {
     alert('Le clic droit est désactivé');
     e.preventDefault();
-  }, false);
+}, false);
 
 // Taper entrée pour envoyer le message
-submit.addEventListener("keyup", e =>{
-    if (e.key === "Enter"){
+submit.addEventListener("keyup", e => {
+    if (e.key === "Enter") {
         form.submit();
     }
 });
