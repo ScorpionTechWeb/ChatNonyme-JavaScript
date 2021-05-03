@@ -1,0 +1,21 @@
+ul {
+    list-style-type: none;
+}
+li {
+    margin: 10px 0;
+}
+form {
+	display: inline-block;
+	text-align: right;
+}
+form div {
+	margin: 10px 0;
+}
+label {
+	display: inline-block;
+	width: 110px;
+	text-align: right;
+}
+input[type="color"] {
+    width: 158.8px;
+}

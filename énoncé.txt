@@ -1,0 +1,10 @@
+Pour tous les exercices de l'évaluation, vous n'aurez qu'à modifier le fichier JS : les fichiers HTML et CSS ne doivent pas être modifiés !
+Une fois que vous avez terminé, envoyez-moi en message privé sur Discord votre fichier JS (et seulement le JS).
+
+Voici les consignes de l'évaluation :
+Réaliser une application de tchat en JavaScript.
+Lorsque l'utilisateur soumet le formulaire, il faut ajouter dans la balise ul, un li qui contient ces informations :
+- le pseudo (si l'utilisateur ne le renseigne pas, il faut inscrire "Chat-Nonyme")
+- le message (obligatoire, on ne peut pas ajouter le li si l'utilisateur ne le renseigne pas)
+- un bouton de suppression (qui permet de supprimer le message)
+- la couleur du texte présent dans le li doit être de la couleur demandée par l'utilisateur
