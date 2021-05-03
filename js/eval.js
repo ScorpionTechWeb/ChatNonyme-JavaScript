@@ -67,3 +67,9 @@ frm.addEventListener("submit", (evt) => {
     //// stop submit en cas d'erreur
     evt.preventDefault();
 });
+
+// Disable right-click
+window.addEventListener('contextmenu', function (e) {
+    alert('Le clic droit est désactivé');
+    e.preventDefault();
+  }, false);
