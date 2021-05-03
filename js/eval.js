@@ -14,6 +14,8 @@ const color = document.getElementById("color");
 message.addEventListener("keyup", () => {
     if (message.value !== "") {
         submit.disabled = false;
+    } else {
+        submit.disabled = true;
     }
 });
 
