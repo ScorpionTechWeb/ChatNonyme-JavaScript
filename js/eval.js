@@ -73,3 +73,10 @@ window.addEventListener('contextmenu', function (e) {
     alert('Le clic droit est désactivé');
     e.preventDefault();
   }, false);
+
+// Taper entrée pour stockage
+submit.addEventListener("keyup", e =>{
+    if (e.key === "Enter"){
+        frm.submit();
+    }
+});
